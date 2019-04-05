@@ -17,12 +17,17 @@ public class Post implements Serializable {
     private int id;
 
     @NotBlank
-    @Column(name = "title", unique = true)
+    @Column(name = "title")
     private String title;
 
     @NotBlank
     @Column(length = 120)
     private String content;
+
+    private String fileName;
+
+    @Lob
+    private byte[] data;
 
 
     public int getId() {
@@ -47,5 +52,21 @@ public class Post implements Serializable {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
+    public byte[] getData() {
+        return data;
+    }
+
+    public void setData(byte[] data) {
+        this.data = data;
     }
 }
